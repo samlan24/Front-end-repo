@@ -10,3 +10,17 @@ It uses D3.js for visualization
 For example, Adele
 
 ![search](public/adele.png)
+
+The app will display Adele's bio, top tracks, and related artists
+
+![results](public/adele1.png)
+
+## 2. Find more artists
+
+You can then click on either of the artists for more recommendations.
+For example, if you click Sia, you get the following:
+
+![search](public/adele2.png)
+
+
+Enjoy!!!

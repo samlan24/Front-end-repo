@@ -9,4 +9,4 @@ It uses D3.js for visualization
 
 For example, Adele
 
-![Logo](adele.png)
+![search](public/adele.png)

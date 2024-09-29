@@ -1,40 +1,9 @@
-
-.container {
-  display: flex;
-  height: 100vh;
-}
-
+/* Default styles for larger screens */
 .sidebar {
   width: 25%;
-  padding: 20px;
-  background: linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  max-height: 100vh;
-}
-
-.sidebar p, .sidebar ul {
-  font-family: 'Work Sans', sans-serif;
-  color: #555;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin-bottom: 10px;
-}
-
-.sidebar a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  background-color: rgba(255, 255, 255, 0.8); /* Translucent background */
 }
 
 .sidebar img {
@@ -56,18 +25,45 @@
   overflow: hidden;
 }
 
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full width for sidebar */
+    position: absolute; /* Absolute positioning to overlay below navbar */
+    top: 60px; /* Adjust this value to be below the navbar */
+    left: 0; /* Align to the left */
+    z-index: 100; /* Ensure it’s on top */
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque for visibility */
+  }
 
-.sidebar {
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+  }
 
-.sidebar::-webkit-scrollbar {
-  display: none;
-}
+  .sidebar-content {
+    display: none; /* Hide sidebar content initially */
+    padding: 10px;
+  }
 
-.sidebar button{
-  border: none;
-  font-size: 16px;
+  .sidebar.open .sidebar-content {
+    display: block; /* Show content when sidebar is open */
+  }
+
+  .main-content {
+    width: 100%; /* Full width for main content on smaller screens */
+    padding: 10px;
+    margin-top: 10px; /* Optional margin to separate from sidebar */
+  }
+
+  .close-sidebar {
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque background */
+  }
 }

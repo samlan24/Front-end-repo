@@ -11,6 +11,7 @@ const Music = () => {
   const [artistInfo, setArtistInfo] = useState(null);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [recommendationsFetched, setRecommendationsFetched] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   // Get the backend URL from the environment variable
@@ -60,6 +61,10 @@ const Music = () => {
     }
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
     <div className="container">
       {!artist ? (
@@ -72,7 +77,18 @@ const Music = () => {
         </div>
       ) : (
         <>
-          <ArtistInfo artistInfo={artistInfo} />
+          <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+            <div className="sidebar-header" onClick={toggleSidebar}>
+              <span>{artist}</span>
+              <span>{sidebarOpen ? '▲' : '▼'}</span>
+            </div>
+            <div className="sidebar-content">
+              <ArtistInfo artistInfo={artistInfo} />
+              <div className="close-sidebar" onClick={toggleSidebar}>
+                ▲
+              </div>
+            </div>
+          </div>
           <div className="main-content">
             <h1 className='music-heading'>Related Artists</h1>
             <RecommendationGraph

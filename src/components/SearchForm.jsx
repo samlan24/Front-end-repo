@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './SearchForm.css'; // Add styles for better presentation
+import './SearchForm.css';
 
 const SearchForm = ({ placeholder, onSearch }) => {
   const [query, setQuery] = useState('');
@@ -11,8 +11,8 @@ const SearchForm = ({ placeholder, onSearch }) => {
     const fetchSuggestions = async () => {
       if (query.trim()) {
         try {
-          // Hardcode the backend URL directly in the API call
-          const response = await axios.get(`https://back-end-repo-ph66.onrender.com/music/artist-suggestions?query=${query}`);
+
+          const response = await axios.get(`https://buzzd-437116.wn.r.appspot.com/music/artist-suggestions?query=${query}`);
           setSuggestions(response.data.suggestions);
         } catch (error) {
           console.error('Error fetching suggestions:', error);
@@ -23,7 +23,7 @@ const SearchForm = ({ placeholder, onSearch }) => {
     };
 
     fetchSuggestions();
-  }, [query]); // No need to include backendUrl in dependencies
+  }, [query]);
 
   const handleSearch = (e) => {
     e.preventDefault();

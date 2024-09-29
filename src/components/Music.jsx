@@ -5,7 +5,6 @@ import '../App.css';
 import RecommendationGraph from './RecommendationGraph';
 import ArtistInfo from './ArtistInfo';
 
-
 const Music = () => {
   const { artist } = useParams();
   const [recommendations, setRecommendations] = useState([]);
@@ -13,6 +12,9 @@ const Music = () => {
   const [currentTrack, setCurrentTrack] = useState(null);
   const [recommendationsFetched, setRecommendationsFetched] = useState(false);
   const navigate = useNavigate();
+
+  // Get the backend URL from the environment variable
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     if (artist) {
@@ -23,7 +25,7 @@ const Music = () => {
 
   const handleSearch = async (searchArtist) => {
     try {
-      const response = await axios.get(`http://localhost:5000/music/recommendations?artist=${searchArtist}`);
+      const response = await axios.get(`${backendUrl}/music/recommendations?artist=${searchArtist}`);
       const newRecommendations = response.data.artists;
       if (JSON.stringify(newRecommendations) !== JSON.stringify(recommendations)) {
         setRecommendations(newRecommendations);
@@ -36,7 +38,7 @@ const Music = () => {
 
   const fetchArtistInfo = async (artistName) => {
     try {
-      const response = await axios.get(`http://localhost:5000/music/artist-info?artist=${artistName}`);
+      const response = await axios.get(`${backendUrl}/music/artist-info?artist=${artistName}`);
       setArtistInfo(response.data);
     } catch (error) {
       console.error('Error fetching artist info:', error);
@@ -72,7 +74,6 @@ const Music = () => {
         <>
           <ArtistInfo artistInfo={artistInfo} />
           <div className="main-content">
-
             <h1 className='music-heading'>Related Artists</h1>
             <RecommendationGraph
               artists={recommendations}

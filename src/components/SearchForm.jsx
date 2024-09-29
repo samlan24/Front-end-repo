@@ -7,14 +7,12 @@ const SearchForm = ({ placeholder, onSearch }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [inputPlaceholder, setInputPlaceholder] = useState('Enter artist name'); // Directly set placeholder
 
-  // Get the backend URL from the environment variable
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (query.trim()) {
         try {
-          const response = await axios.get(`${backendUrl}/music/artist-suggestions?query=${query}`);
+          // Hardcode the backend URL directly in the API call
+          const response = await axios.get(`https://back-end-repo-ph66.onrender.com/music/artist-suggestions?query=${query}`);
           setSuggestions(response.data.suggestions);
         } catch (error) {
           console.error('Error fetching suggestions:', error);
@@ -25,7 +23,7 @@ const SearchForm = ({ placeholder, onSearch }) => {
     };
 
     fetchSuggestions();
-  }, [query, backendUrl]); // Include backendUrl in dependencies
+  }, [query]); // No need to include backendUrl in dependencies
 
   const handleSearch = (e) => {
     e.preventDefault();

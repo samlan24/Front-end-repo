@@ -14,7 +14,7 @@ const Music = () => {
   const navigate = useNavigate();
 
   // Get the backend URL from the environment variable
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  //const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     if (artist) {
@@ -25,7 +25,7 @@ const Music = () => {
 
   const handleSearch = async (searchArtist) => {
     try {
-      const response = await axios.get(`${backendUrl}/music/recommendations?artist=${searchArtist}`);
+      const response = await axios.get(`https://back-end-repo-ph66.onrender.com/music/recommendations?artist=${searchArtist}`);
       const newRecommendations = response.data.artists;
       if (JSON.stringify(newRecommendations) !== JSON.stringify(recommendations)) {
         setRecommendations(newRecommendations);
@@ -38,7 +38,7 @@ const Music = () => {
 
   const fetchArtistInfo = async (artistName) => {
     try {
-      const response = await axios.get(`${backendUrl}/music/artist-info?artist=${artistName}`);
+      const response = await axios.get(`https://back-end-repo-ph66.onrender.com/music/artist-info?artist=${artistName}`);
       setArtistInfo(response.data);
     } catch (error) {
       console.error('Error fetching artist info:', error);

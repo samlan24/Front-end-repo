@@ -29,15 +29,15 @@ const SearchForm = ({ placeholder, onSearch }) => {
     e.preventDefault();
     if (query.trim()) {
       onSearch(query, 'artist');
-      clearInputAndSuggestions(); // Clear input and suggestions after search
+      clearInputAndSuggestions();
     }
   };
 
   const handleSuggestionClick = (suggestion) => {
     setQuery(suggestion.name);
-    setSuggestions([]); // Clear suggestions after selection
+    setSuggestions([]);
     onSearch(suggestion.name, 'artist');
-    clearInputAndSuggestions(); // Clear input and suggestions after selection
+    clearInputAndSuggestions();
   };
 
   // Function to clear the input and suggestions

@@ -1,4 +1,3 @@
-// src/components/MediaPlayer.jsx
 import React from 'react';
 
 const MediaPlayer = ({ currentTrack }) => {

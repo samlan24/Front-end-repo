@@ -61,12 +61,12 @@
 }
 
 .search-input {
-    padding: 12px 15px; /* Adjust padding for comfort */
-    font-size: 16px; /* Set font size */
-    border: 2px solid #ccc; /* Thicker border for a bolder look */
-    border-radius: 20px; /* Rounded edges */
-    outline: none; /* Remove default outline */
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    outline: none;
 
-    width: 100%; /* Full width */
-    margin-right: 10px; /* Spacing between input and button */
+    width: 100%;
+    margin-right: 10px;
 }

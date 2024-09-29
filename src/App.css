@@ -28,12 +28,14 @@
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%; /* Full width for sidebar */
-    position: absolute; /* Absolute positioning to overlay below navbar */
+    width: 98%; /* Full width for sidebar */
+    position: fixed; /* Fixed positioning to overlay below navbar */
     top: 60px; /* Adjust this value to be below the navbar */
     left: 0; /* Align to the left */
     z-index: 100; /* Ensure it’s on top */
     background-color: rgba(255, 255, 255, 0.9); /* More opaque for visibility */
+    max-height: calc(100vh - 60px); /* Full height minus navbar */
+    transition: max-height 0.3s ease; /* Smooth transition for expanding/collapsing */
   }
 
   .sidebar-header {
@@ -46,8 +48,10 @@
   }
 
   .sidebar-content {
-    display: none; /* Hide sidebar content initially */
     padding: 10px;
+    overflow-y: auto; /* Allow scrolling within content if needed */
+    max-height: calc(100vh - 60px); /* Ensure it fills the remaining space */
+    display: none; /* Hide sidebar content initially */
   }
 
   .sidebar.open .sidebar-content {
@@ -57,7 +61,7 @@
   .main-content {
     width: 100%; /* Full width for main content on smaller screens */
     padding: 10px;
-    margin-top: 10px; /* Optional margin to separate from sidebar */
+    margin-top: calc(60px + 10px); /* Push down the main content below the sidebar */
   }
 
   .close-sidebar {

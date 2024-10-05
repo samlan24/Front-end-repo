@@ -16,11 +16,11 @@ const SearchForm = () => {
       if (query.trim()) {
         try {
           if (searchType === 'artist') {
-            const response = await axios.get(`http://127.0.0.1:5000/music/artist-suggestions?query=${query}`);
+            const response = await axios.get(`https://buzzd-437116.wn.r.appspot.com/music/artist-suggestions?query=${query}`);
             setArtistSuggestions(response.data.suggestions);
             setSongSuggestions([]); // Clear song suggestions
           } else if (searchType === 'song') {
-            const response = await axios.get(`http://127.0.0.1:5000/music/song-suggestions?query=${query}`);
+            const response = await axios.get(`https://buzzd-437116.wn.r.appspot.com/music/song-suggestions?query=${query}`);
             setSongSuggestions(response.data.suggestions);
             setArtistSuggestions([]); // Clear artist suggestions
           }

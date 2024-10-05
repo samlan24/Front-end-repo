@@ -21,7 +21,7 @@ const Songs = () => {
 
     const fetchSongDetails = async (songName) => {
         try {
-            const response = await axios.get(`http://localhost:5000/music/song-details?query=${encodeURIComponent(songName)}`);
+            const response = await axios.get(`https://buzzd-437116.wn.r.appspot.com/music/song-details?query=${encodeURIComponent(songName)}`);
             setSearchedSong(response.data.song);
         } catch (error) {
             console.error('Error fetching song details:', error);
@@ -30,7 +30,7 @@ const Songs = () => {
 
     const fetchSimilarSongs = async (songName) => {
         try {
-            const response = await axios.get(`http://localhost:5000/music/similar-songs?song=${encodeURIComponent(songName)}`);
+            const response = await axios.get(`https://buzzd-437116.wn.r.appspot.com/music/similar-songs?song=${encodeURIComponent(songName)}`);
             setRecommendedSongs(response.data.similar_songs);
         } catch (error) {
             console.error('Error fetching similar songs:', error);

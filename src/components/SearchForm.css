@@ -1,5 +1,12 @@
+
+.search-form-container{
+    display: flex;
+    align-items: center;
+}
+
 .search-form {
     display: flex;
+    align-items: center; /* Align items vertically in the center */
 }
 
 .home-input {
@@ -8,6 +15,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
+    flex-grow: 1; /* Allow input to take available space */
 }
 
 .search-button {
@@ -43,7 +51,6 @@
     top: 100%;
     left: 0;
     z-index: 1000;
-
 }
 
 .suggestions-list li {
@@ -61,12 +68,37 @@
 }
 
 .search-input {
-    padding: 12px 15px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 20px;
-    outline: none;
+    padding: 12px 15px; /* Adjust padding for comfort */
+    font-size: 16px; /* Set font size */
+    border: 2px solid #ccc; /* Thicker border for a bolder look */
+    border-radius: 20px; /* Rounded edges */
+    outline: none; /* Remove default outline */
 
-    width: 100%;
-    margin-right: 10px;
+    width: calc(100% - 150px); /* Adjust width to accommodate dropdown and button */
+    margin-right: 10px; /* Spacing between input and button */
 }
+
+/* Dropdown menu styling */
+.dropdown-container {
+    margin-right: 10px; /* Space between dropdown and input */
+}
+
+.search-dropdown {
+    padding: 10px; /* Padding for dropdown */
+    border: none;
+    background-color: transparent;
+    color: #333;
+    font-size: 1rem;
+}
+
+.search-dropdown:hover {
+    background-color: transparent;
+    border: none; /* Change background color on hover */
+}
+.search-dropdown:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+
+
+
